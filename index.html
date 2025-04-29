@@ -3,93 +3,455 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UrbanLeaf - Em Breve</title>
+    <meta property="og:title" content="UrbanLeaf | Microverdes">
+    <meta name="description" content="A UrbanLeaf cultiva microverdes sob encomenda em ambiente indoor controlado. Qualidade, frescor e regularidade para chefs e restaurantes.">
+    <meta property="og:description" content="Fazenda vertical urbana especializada em microverdes frescos sob encomenda, cultivados indoor para chefs, restaurantes e quem busca alimentação saudável.">
+    <meta property="og:image" content="URL_DA_IMAGEM" />
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.ico" />
+    <title>UrbanLeaf | Microverdes para Chefs</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+
     <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html, body {
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+        background-color: #fcfdfc;
+        color: #1b1b1b;
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: white;
+        padding: 1rem;
+        color: #1b4332;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .menu-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .menu {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .menu a {
+        color: #1b4332;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .menu a:hover {
+        color: #2d6a4f;
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        margin-left: 1rem;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: #1b4332;
+        border-radius: 2px;
+      }
+
+      .menu-mobile {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease;
+      }
+
+      .menu-mobile.show {
+        display: flex;
+        max-height: 300px;
+      }
+
+      .menu-mobile a {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        font-size: 1rem;
+        color: #1b4332;
+        text-align: center;
+      }
+
       body {
+        padding-top: 80px;
+      }
+
+      section {
+        padding: 4rem 2rem;
+        max-width: 1024px;
+        margin: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        animation: fadeIn 0.8s ease-in-out both;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      #inicio {
+        background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+        text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin: 0;
+        border-radius: 0 0 20px 20px;
       }
-      .header {
-        width: 100%;
+
+      #inicio h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        color: #1b4332;
+      }
+
+      #inicio p {
+        font-size: 1.1rem;
+        color: #2d6a4f;
         max-width: 600px;
-        height: 200px; /* Altura da faixa */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20px;
-        overflow: hidden; /* Garante que a imagem não ultrapasse a borda */
+        margin-bottom: 2rem;
+        padding: 0 1rem;
       }
-      .header img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Garante que a imagem cubra toda a área */
-        border-radius: 20px; /* Bordas arredondadas na imagem */
+
+      #inicio img {
+        max-width: 60%;
+        height: auto;
+        margin-bottom: 0.2rem;
+        animation: fadeIn 1s ease-out;
       }
-      .container {
-        background: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 600px;
-        width: 90%;
-      }
-      h1 {
-        font-size: 2rem;
-        color: #333;
-      }
-      p {
-        font-size: 1.2rem;
-        color: #666;
-      }
-      .instagram-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        margin-top: 20px;
-        padding: 8px 14px;
-        font-size: 1rem;
-        color: #333;
-        background-color: #d9d9d9; /* Tom bege/concreto */
+
+      .cta {
+        display: inline-block;
+        background: linear-gradient(145deg, #1b4332, #2d6a4f);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
         text-decoration: none;
-        border-radius: 20px;
-        border: none;
-        cursor: pointer;
-        width: auto;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       }
-      .instagram-btn img {
-        width: 16px;
-        height: 16px;
+
+      .cta:hover {
+        background-color: #2d6a4f;
+      }
+
+      h2 {
+        font-family: 'Playfair Display', serif;
+        color: #1b4332;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .produtos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .produto {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, border 0.3s ease;
+        border: 1px solid #f0f0f0;
+      }
+
+      .produto:hover {
+        transform: translateY(-4px);
+        border: 1px solid rgba(43, 87, 63, 0.2);
+      }
+
+      .produto h3 {
+        font-family: 'Playfair Display', serif;
+        color: #1b4332;
+        margin-bottom: 0.5rem;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      }
+
+      input, textarea {
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      button {
+        background: linear-gradient(145deg, #1b4332, #2d6a4f);
+        color: white;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #2d6a4f;
+      }
+
+      footer {
+        background-color: #f0fdf4;
+        color: #1b4332;
+        padding: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      footer a {
+        color: #2d6a4f;
+        text-decoration: none;
+      }
+      #sobre p {
+        text-align: justify;
+        max-width: 700px;
+        margin: 1.25rem auto 0; /* Menor espaçamento entre parágrafos */
+      }
+      #sobre p:first-of-type {
+        margin-top: 0;
+      }
+
+      #cultivo p {
+        text-align: justify;
+        max-width: 700px;
+        margin: 1.25rem auto 0;
+      }
+
+      #cultivo ul {
+        text-align: center;
+        list-style: none;
+        padding: 0;
+        margin: 2rem auto 0;
+        max-width: 700px;
+      }
+
+      #cultivo ul li {
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+      }
+
+      @media (max-width: 768px) {
+        .menu {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+
+        .menu-mobile {
+          display: flex;
+        }
+
+        #inicio h1 {
+          font-size: 2rem;
+        }
+      }
+      .tag-em-breve {
+        background-color: #f1f1e6; /* bege areia clarinho */
+        color: #1b4332;
+        font-size: 0.7rem;
+        padding: 2px 6px;
+        border-radius: 8px;
+        margin-left: 0.5rem;
+        vertical-align: middle;
+        font-weight: bold;
+        text-transform: uppercase;
       }
     </style>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector('.menu-mobile');
+        menu.classList.toggle('show');
+      }
+    </script>
   </head>
   <body>
-    <div class="header">
-      <img src="urbanleaf.svg" alt="UrbanLeaf Logo" />
-    </div>
-    <div class="container">
-      <h1>Uma nova forma de cultivar sabor e saúde!</h1>
-      <p>
-        Estamos preparando algo especial para você! Em breve, microverdes
-        frescos e cheios de vida, cultivados em nossa fazenda vertical indoor,
-        direto para a sua mesa e restaurantes.
+    <header>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="menu-wrapper">
+        <ul class="menu">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#cultivo">Cultivo</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="menu-mobile">
+        <a href="#inicio" onclick="toggleMenu()">Início</a>
+        <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+        <a href="#produtos" onclick="toggleMenu()">Produtos</a>
+        <a href="#cultivo" onclick="toggleMenu()">Cultivo</a>
+        <a href="#contato" onclick="toggleMenu()">Contato</a>
+      </div>
+    </header>
+
+    <section id="inicio">
+      <!-- Substitua abaixo por imagem real do cultivo ou produto -->
+      <!-- <img src="imagens/cultivo.jpg" alt="Microverdes UrbanLeaf" /> -->
+      <img src="logo.svg" alt="UrbanLeaf Logo" />
+      <h1>Microverdes</h1>
+      <p>Produtos frescos, cultivados sob encomenda especialmente para chefs, restaurantes e quem busca alimentação saudável. Entregas regulares, qualidade consistente e variedades pensadas para valorizar cada prato.</p>
+      <p>🌱 Planeje sua demanda com a UrbanLeaf e leve mais sabor, cor e frescor à sua cozinha.</p>
+      <a href="#contato" class="cta">Fale com a gente</a>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre a UrbanLeaf</h2>
+
+
+      <p>A UrbanLeaf nasceu da busca por um cultivo mais controlado, estável e confiável. A experiência com o cultivo ao ar livre revelou limitações como pragas, clima instável e pouca previsibilidade o que levou naturalmente à escolha pelo cultivo indoor, onde cada variável pode ser ajustada com precisão.</p>
+
+      <p>O interesse pelos microverdes surgiu ao observar seu uso na gastronomia. A curiosidade em entender o que eram, de onde vinham e como eram produzidos se uniu ao nosso interesse por plantas, levando a uma série de pesquisas e testes de cultivo envolvendo substratos, iluminação e manejo na colheita até consolidar um modelo eficiente e consistente.</p>
+    
+      <p>Hoje, a UrbanLeaf é uma fazenda vertical urbana localizada em Joinville (SC), dedicada exclusivamente ao cultivo indoor de microverdes sob encomenda. Com ciclos definidos, colheita no ponto ideal e entregas regulares, oferecemos produtos frescos e padronizados.</p>
+    
+    </section>
+
+    <section id="produtos">
+      <h2>Nossos Produtos</h2>
+      <div class="produtos-grid">
+        <div class="produto">
+          <h3>Amaranto Asteca</h3>
+          <p>Folhas delicadas e vibrantes, com notas terrosas sutis. Excelente para finalizações sofisticadas e pratos criativos.</p>
+        </div>
+        <div class="produto">
+          <h3>Beterraba Shankar</h3>
+          <p>Coloração intensa em tons de vermelho/roxo e um leve dulçor terroso. Perfeita para dar vida a saladas e entradas.</p>
+        </div>
+        <div class="produto">
+          <h3>Brócolis <span class="tag-em-breve">Em breve</span></h3>
+          <p>Folhas verdes delicadas, sabor suave e levemente herbáceo. Rico em nutrientes, é ideal para finalizar pratos leves e trazer frescor a saladas.</p>
+        </div>
+        <div class="produto">
+          <h3>Coentro <span class="tag-em-breve">Em breve</span></h3>
+          <p>Folhagem aromática e sabor fresco, característico e marcante. Ideal para acentuar pratos da culinária brasileira e internacional.</p>
+        </div>
+        <div class="produto">
+          <h3>Couve Pe-Tsai<span class="tag-em-breve">Em breve</span></h3>
+          <p>Folhas claras e delicadas, com sabor suave e leve doçura. Ideal para finalizações leves ou pratos inspirados na culinária asiática.</p>
+        </div>
+        <div class="produto">
+          <h3>Mostarda</h3>
+          <p>Notas picantes e vibrantes, trazendo personalidade e um toque apimentado a sanduíches, saladas e carnes.</p>
+        </div>
+        <div class="produto">
+          <h3>Repolho Roxo</h3>
+          <p>Textura crocante, tons roxos intensos e sabor suave. Ótimo para trazer contraste de cor e frescor a pratos variados.</p>
+        </div>
+        <div class="produto">
+          <h3>Rabanete Ganga</h3>
+          <p>Sabor levemente apimentado, com folhas delicadas e textura macia. Excelente para saladas e guarnições frescas.</p>
+        </div>
+        <div class="produto">
+          <h3>Rabanete Indra (Rose)</h3>
+          <p>Microverde de coloração rosada elegante, sabor suave e crocante. Perfeito para embelezar e aromatizar pratos leves.</p>
+        </div>
+        <div class="produto">
+          <h3>Rúcula</h3>
+          <p>Folhas pequenas, macias e com sabor intenso e levemente picante. Ideal para dar frescor e força aromática a saladas e entradas.</p>
+        </div>       
+      </div>
+    </section>
+    
+
+    <section id="cultivo">
+      <h2>Do Cultivo à Entrega</h2>
+    
+      <p>Na UrbanLeaf, cada folha tem uma origem cuidadosamente planejada.</p>
+    
+      <p>Todo o processo acontece indoor, com controle de luz, umidade e temperatura, fatores essenciais para manter padrão e qualidade.</p>
+    
+      <p>Como os microverdes são colhidos no ponto ideal, trabalhamos com prazos de cultivo precisos. Isso significa que, com um bom planejamento, conseguimos garantir a entrega no momento certo.</p>
+    
+      <ul>
+        <li>🚛 Entregas às <strong>terças e sextas-feiras</strong></li>
+        <li>⏳ Variedades com ciclos de <strong>7 a 14 dias</strong></li>
+        <li>📅 Pedidos antecipados garantem disponibilidade e frescor</li>
+        <li>🌱 Cultivo exclusivo, sob encomenda</li>
+      </ul>
+    </section>
+    
+
+    <section id="contato">
+      <h2>Entre em Contato</h2>
+      <div style="text-align: center; margin: 2rem 0;">
+        <a href="https://instagram.com/urbanleaf.br" target="_blank" class="cta" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem;">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width: 24px; height: 24px; filter: invert(1);" />
+          Fale com a gente no Instagram
+        </a>
+      </div>
+      <p style="text-align: center; margin-top: 1rem; font-size: 1rem;">
+        Ou envie um e-mail para: <br>
+        <a href="mailto:contato@urbanleaf.com.br" style="color: #2d6a4f; text-decoration: none; font-weight: 500;">urban.leaf.br@gmail.com</a>
       </p>
-      <a
-        href="https://instagram.com/urbanleaf.br"
-        target="_blank"
-        class="instagram-btn"
-      >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-          alt="Instagram Icon"
-        />
-        urbanleaf.br
-      </a>
-    </div>
+    </section>
+    
+    
+
+    <footer>
+      <p>&copy; 2025 UrbanLeaf. Todos os direitos reservados.</p>
+      <p><a href="https://instagram.com/urbanleaf.br">Instagram</a> | <a href="mailto:urban.leaf.br@gmail.com">urban.leaf.br@gmail.com</a></p>
+    </footer>
   </body>
 </html>
