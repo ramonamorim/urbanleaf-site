@@ -6,13 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta property="og:title" content="UrbanLeaf | Microverdes">
   <meta name="description"
-    content="A UrbanLeaf cultiva microverdes sob encomenda em ambiente indoor controlado. Qualidade, frescor e regularidade para chefs e restaurantes.">
+    content="Microverdes em Joinville cultivados sob encomenda em ambiente indoor controlado. Frescor, qualidade e entrega regular para chefs e restaurantes." />
+
   <meta property="og:description"
     content="Fazenda vertical urbana especializada em microverdes frescos sob encomenda, cultivados indoor para chefs, restaurantes e quem busca alimentação saudável.">
-  <meta property="og:image" content="URL_DA_IMAGEM" />
+  <meta property="og:image" content="https://urbanleaf.com.br/logo.jpg" />
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://urbanleaf.com.br/" />
+  <meta property="og:locale" content="pt_BR" />
+
+
+
+
   <link rel="icon" href="favicon.ico" />
-  <title>UrbanLeaf | Microverdes para Chefs</title>
+  <title>UrbanLeaf | Microverdes em Joinville para chefs e restaurantes</title>
+  <link rel="canonical" href="https://urbanleaf.com.br/" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap"
     rel="stylesheet" />
@@ -284,7 +292,6 @@
       text-align: justify;
       max-width: 700px;
       margin: 1.25rem auto 0;
-      /* Menor espaçamento entre parágrafos */
     }
 
     #sobre p:first-of-type {
@@ -330,7 +337,6 @@
 
     .tag-em-breve {
       background-color: #f1f1e6;
-      /* bege areia clarinho */
       color: #1b4332;
       font-size: 0.7rem;
       padding: 2px 6px;
@@ -348,6 +354,23 @@
       menu.classList.toggle('show');
     }
   </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "UrbanLeaf",
+      "description": "Microverdes em Joinville para chefs, restaurantes e quem busca alimentação saudável.",
+      "url": "https://urbanleaf.com.br/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Joinville",
+        "addressRegion": "SC",
+        "addressCountry": "BR"
+      },
+      "areaServed": "Joinville",
+      "sameAs": ["https://instagram.com/urbanleaf.br"]
+    }
+    </script>
 </head>
 
 <body>
@@ -374,7 +397,8 @@
   </header>
 
   <section id="inicio">
-    <img src="logo.svg" alt="UrbanLeaf Logo" />
+    <img src="logo.svg"
+      alt="UrbanLeaf - Microverdes em Joinville para chefs, restaurantes e quem busca alimentação saudável" />
     <h1>Microverdes</h1>
     <p>Produtos frescos, cultivados sob encomenda especialmente para chefs, restaurantes e quem busca alimentação
       saudável. Entregas regulares, qualidade consistente e variedades pensadas para valorizar cada prato.</p>
@@ -480,7 +504,7 @@
   <section id="contato">
     <h2>Entre em Contato</h2>
     <div style="text-align: center; margin: 2rem 0;">
-      <a href="https://instagram.com/urbanleaf.br" target="_blank" class="cta"
+      <a href="https://instagram.com/urbanleaf.br" target="_blank" rel="noopener noreferrer" class="cta"
         style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem;">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"
           style="width: 24px; height: 24px; filter: invert(1);" />
@@ -498,8 +522,12 @@
 
   <footer>
     <p>&copy; 2025 UrbanLeaf. Todos os direitos reservados.</p>
-    <p><a href="https://instagram.com/urbanleaf.br">Instagram</a> | <a
-        href="mailto:urban.leaf.br@gmail.com">urban.leaf.br@gmail.com</a></p>
+    <p>Atendemos Joinville (SC) e região.</p>
+    <p>
+      <a href="https://instagram.com/urbanleaf.br">Instagram</a> |
+      <a href="mailto:urban.leaf.br@gmail.com">urban.leaf.br@gmail.com</a>
+
+    </p>
   </footer>
 </body>
 
